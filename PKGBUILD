@@ -7,7 +7,7 @@ pkgname="${_pkgname}-bin"
 _origver='1.0.2-lnd25.1~rc1.7'
 _pkgver="$(printf '%s' "$_origver" | tr -- '-~' '_.')"
 pkgver="$_pkgver"
-pkgrel=1
+pkgrel=2
 pkgdesc='DRM (Direct Rendering Manager) interface library for LoongGPU'
 arch=('loong64')
 url='https://pkg.loongnix.cn/'
@@ -15,7 +15,7 @@ license=('LicenseRef-Proprietary')
 depends=('glibc')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
-options=('!strip')
+options=('!debug' '!strip')
 
 _debname="${_pkgname}_${_origver}_loong64.deb"
 source=("${_debname}::https://pkg.loongnix.cn/loongnix/25/pool/non-free/l/loonggpu-graphics-drivers/${_debname}")
@@ -29,7 +29,7 @@ package() {
   echo 'Moving libraries to the correct location ...'
   mkdir -p "$pkgdir"/usr/lib
   mv -v "$pkgdir"/usr/lib/loongarch64-linux-gnu/* "$pkgdir"/usr/lib/
-  rm -rf "$pkgdir"/usr/lib/loongarch64-linux-gnu
+  rm -vrf "$pkgdir"/usr/lib/loongarch64-linux-gnu
 
   echo 'Setting executable bits for shared objects ...'
   chmod -v +x "$pkgdir"/usr/lib/*.so*

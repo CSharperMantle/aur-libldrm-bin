@@ -1,13 +1,14 @@
 pkgbase = libldrm-bin
 	pkgdesc = DRM (Direct Rendering Manager) interface library for LoongGPU
 	pkgver = 1.0.2_lnd25.1.rc1.7
-	pkgrel = 1
+	pkgrel = 2
 	url = https://pkg.loongnix.cn/
 	arch = loong64
 	license = LicenseRef-Proprietary
 	depends = glibc
 	provides = libldrm
 	conflicts = libldrm
+	options = !debug
 	options = !strip
 	source = libldrm_1.0.2-lnd25.1~rc1.7_loong64.deb::https://pkg.loongnix.cn/loongnix/25/pool/non-free/l/loonggpu-graphics-drivers/libldrm_1.0.2-lnd25.1~rc1.7_loong64.deb
 	sha256sums = 68d1639d38d5c01b5a646562126a0e0dba5f8182719280573d3fc1f7c7e06e6a
